@@ -15,14 +15,14 @@ int main()
                       {1, 1, 0, 1, 1, 1, 1, 1, 1, 1}};
 
     // Create the initial state
-    ores::State * init_state = new LocationState(0, 7, 9, 5, map);
+    merl::AStar::State * init_state = new LocationState(0, 7, 9, 5, map);
 
     // Run the A* algorithm
-    ores::AStar as(ores::AStar::MODE::MINIMIZE);
-    std::list<ores::State*> solution = as.launch(init_state);
+    merl::AStar as(merl::AStar::MODE::MINIMIZE);
+    std::list<merl::AStar::State*> solution = as.launch(init_state);
 
     // Draw the solution path
-    for(ores::State*& s : solution)
+    for(merl::AStar::State*& s : solution)
     {
         LocationState * ls = dynamic_cast<LocationState*>(s);
         map[ls->Y()][ls->X()] = 2;

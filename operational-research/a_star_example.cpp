@@ -77,7 +77,7 @@ bool LocationState::isSolution() const
 {
     return (position_ == destination_);
 }
-std::list<ores::State *> LocationState::successors() const
+std::list<merl::AStar::State *> LocationState::successors() const
 {
     std::list<State*> neighbours;
 
@@ -101,12 +101,12 @@ double LocationState::h() const
 {
     return std::sqrt((destination_.first-position_.first)*(destination_.first-position_.first) + (destination_.second-position_.second)*(destination_.second-position_.second));
 }
-double LocationState::k(const State * s) const
+double LocationState::k(const merl::AStar::State * s) const
 {
     const LocationState * ls = dynamic_cast<const LocationState *>(s);
     return std::sqrt((ls->position_.first-position_.first)*(ls->position_.first-position_.first) + (ls->position_.second-position_.second)*(ls->position_.second-position_.second));
 }
-bool LocationState::equals(const State * s) const
+bool LocationState::equals(const merl::AStar::State * s) const
 {
     const LocationState * ls = dynamic_cast<const LocationState *>(s);
     return (*ls == *this);

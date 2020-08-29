@@ -6,7 +6,7 @@
 #include <vector>
 using simple_map_t = std::vector<std::vector<short>>;
 
-class LocationState: public ores::State
+class LocationState: public merl::AStar::State
 {
     protected:
         std::pair<int, int> map_size_;    // <X, Y>
@@ -34,10 +34,10 @@ class LocationState: public ores::State
 
         // INHERITED MEMBER FUNCTIONS
         bool isSolution() const override;
-        std::list<State *> successors() const override;
+        std::list<merl::AStar::State *> successors() const override;
         double h() const override;
-        double k(const State * s) const override;
-        bool equals(const State * s) const override;
+        double k(const merl::AStar::State * s) const override;
+        bool equals(const merl::AStar::State * s) const override;
 };
 
 #endif // A_STAR_TEST_H
