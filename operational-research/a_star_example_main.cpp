@@ -39,8 +39,7 @@ int main()
     }
 
     // Free memory
-    for(auto & s : solution)
-        delete s;
+    merl::AStar::release_path(solution);
 
     return 0;
 }
