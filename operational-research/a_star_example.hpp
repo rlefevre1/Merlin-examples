@@ -1,7 +1,7 @@
 #ifndef A_STAR_TEST_H
 #define A_STAR_TEST_H
 
-#include <merlin-operational-research/merlin_a_star.hpp>
+#include <merlin_operational_research>
 
 #include <vector>
 using simple_map_t = std::vector<std::vector<short>>;
